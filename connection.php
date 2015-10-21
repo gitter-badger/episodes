@@ -12,7 +12,7 @@ $connexion=$forum->connexion(
 if ( count($connexion) > 0 ) {
 	
 	$_SESSION['users'] = $connexion[0];
-	header('Location: home.php');
+	header('Location: accueil.php');
 
 } else {
 

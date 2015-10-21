@@ -1,4 +1,4 @@
-# episodes
+# Episodes
   Liste des fichiers
   
     ## Fichier PHP
@@ -27,5 +27,8 @@
       - db.php : base de donnée, 
       - forum.php : class
       - image.php
+      
+    ## DS js
+      -
       
     

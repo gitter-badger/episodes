@@ -1,4 +1,4 @@
- var imlocation = "images/random_connexion/";
+ var imlocation = "images/landing_page/";
  var currentdate = 0;
  var image_number = 0;
  function ImageArray (n) {

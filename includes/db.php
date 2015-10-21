@@ -5,7 +5,7 @@ include('Forum.php');
 include('twig/lib/Twig/Autoloader.php');
 
 session_start();
-$dsn 	='mysql:host=localhost;dbname=forumLePoles';
+$dsn 	='mysql:host=localhost;dbname=episodes';
 $user 	='root';
 $pass 	='';
 

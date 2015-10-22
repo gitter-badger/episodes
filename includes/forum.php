@@ -97,7 +97,7 @@
        		':listeTopics'=> $listeTopics
        		]);
    
-       	return $request->fetchAll();    	
+       	return $request->fetchAll()[0];    	
    
    	
        }
@@ -117,7 +117,7 @@
        	$request->execute([
        		':listeTopics'=> $listeTopics
        		]);
-       	return $request->fetchAll();
+       	return $request->fetchAll()[0];
        }
    
    // Creer Topic

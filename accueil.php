@@ -2,17 +2,23 @@
 
  include('includes/db.php');
 
-	$template = $twig->loadTemplate('accueil.html');
-	$users  = $forum->selectUsers();
+	$template 	= $twig->loadTemplate('accueil.html');
+	$users  	= $forum->selectUsers();
 
-	$topics = $forum-> selectTopics();
+	$topics 	= $forum-> selectTopics();
+
+	$categories 	= $forum-> selectCategories();
+
+	$categorie = $forum->selectCategoriesTopics($topics[0]['categorieId']);
+	$creator = $forum->selectCreatorId($topics[0]['creatorId']);
 
 
-	/*$topicsId = $forum-> afficherTopic($id);
-
-	$creatorId = $forum->selectCreatorId($listeTopics);
-	$categories = $forum->selectCategoriesTopics($listeTopics);
-    
-*/
-	echo $template->render(['topics' => $topics[0]['title'] ] );
+	echo $template->render([
+		'users' => $users, 
+		'categories' => $categories, 
+		'topics' => $topics, 
+		'categorie'=>$categorie, 
+		'creator'=>$creator, 
+		'forum' => $forum
+		]);
 

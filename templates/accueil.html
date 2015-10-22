@@ -12,7 +12,7 @@
       <!--  CSS -->
       <link rel="stylesheet" type="text/css" href="css/normalize.css">
       <link rel="stylesheet" type="text/css" href="css/accueil.css">
-      <link rel="stylesheet" type="text/css" href="css/connect.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
       <!-- Font -->
        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
@@ -24,7 +24,7 @@
       <![endif]-->
    </head>
    <body>
-         
+     {% include 'header_liste.html' %}
       <h2>
          <a href="formulaire_topic.php" class="hvr-icon-forward">
             Nouveau topic 
@@ -46,21 +46,21 @@
             {% for topic in topics %}
 
             <tr>
-               <td ><a href="topic.php?id={{topic.id}}"> <p>{{topic}}</p> </a></td>
+               <td ><a href="topic.php?id={{topic.id}}"> <p>{{topic.title}}</p> </a></td>
                <td class="creatorId">
-                  <a href="categories.php?id={{categoriesId}}"> 
-                     {{ categories.name }} 
+                  <a href="categories.php?id={{topic.categorieId}}"> 
+                     {{ forum.selectCategoriesTopics(topic.categorieId).name }} 
                   </a>
                </td>
                <td class="creatorId"> 
-                  <a href="profil_page.php?id={{ usersId }}">
-                     {{ creatorId.pseudo }}
+                  <a href="profil_page.php?id={{topic.creatorId}}">
+                     {{ forum.selectCreatorId(topic.creatorId).pseudo }}
                      </a> 
                </td>
-               <td class="date"> {{ listeTopics.creation }}</td>
+               <td class="date"> {{ topic.creation }}</td>
             </tr>
 
-   {% endfor  %}
+   {% endfor %}
 
          </tbody>
       </table>
@@ -74,12 +74,12 @@
          </thead>
          <tbody>
  
-            {% for listeCategories in categorieId %}
+            {% for categorie in categories %}
 
             <tr>
-               <td class="topic"><a href="categories.php?id={{ categorieId }}"> {{ categories.name }}</a></td>
-               <td class="creatorId">{{ nombre }}</td>
-               <td class="date">{{ creation }}</td>
+               <td class="topic"><a href="categories.php?id={{ categorie.id }}"> {{ categorie.name }}</a></td>
+               <td class="creatorId">{{ categorie.nombre }}</td>
+               <td class="date">{{ categorie.creation }}</td>
             </tr>
             {% endfor  %}
          </tbody>

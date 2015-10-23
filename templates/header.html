@@ -37,24 +37,24 @@
           <div class="hello">
                
    
-            {% for user in users %}
-            {% if user.avatar %}
+
+            {% if avatar.avatar %}
 
                      <div class="pp icon">
                         <img src="../images/user.png" alt="user" style="left:inherit">
                      </div>
-                     <a href="profil_page.php?id=<?= $avatar[$i]['id'] ?>">
+                     <a href="profil_page.php?id={{ avatar.avatar}}">
                        
                      </a>
 {% else %}
                   <div class="pp icon ">
-                     <img src="{{users.avatar}}" alt="user">
+                     <img src="{{avatar.avatar}}" alt="user">
                   </div>
                   <a href="profil_page.php?id={{users.id}}">
                      
                   </a>
 {% endif  %}
-{% endfor %}
+
              
                <ul class="profil_nav" >
                   <li>Bonjour {{users}}</li>

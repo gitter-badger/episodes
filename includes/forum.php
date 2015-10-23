@@ -58,21 +58,30 @@
    // Afficher Avatar
        
        function selectUser($id){
-       	    	$request=$this->pdo->prepare('SELECT*FROM users WHERE id= :id');
+       	$request=$this->pdo->prepare('SELECT*FROM users WHERE id= :id');
        	$request->execute([
        		':id'=> $id
        		]);
    
-       	return $request->fetchAll();
+       	return $request->fetchAll()[0];
        }
    
-   // Liste Users
+   // Liste Users 
    
        function selectUsers()
        {
        	 $request=$this->pdo->prepare('SELECT * FROM users ;');
        	 $request->execute([]);
        	return $request->fetchAll();
+    
+        
+       }
+
+   function selectOneUser()
+       {
+         $request=$this->pdo->prepare('SELECT * FROM users WHERE id="'.$_SESSION['users']['id'].'";');
+         $request->execute([]);
+        return $request->fetchAll()[0];
     
         
        }

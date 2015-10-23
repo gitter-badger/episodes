@@ -8,7 +8,10 @@
          $template = $twig->loadTemplate('user_list.html');
          $users  = $forum->selectUsers();
        
-        echo $template->render(['users' => $users] );
+        echo $template->render([
+        	'users' => $users,
+        	'userSession' => $forum->selectUser($_SESSION['users']['id'])
+        ]);
 
       
     

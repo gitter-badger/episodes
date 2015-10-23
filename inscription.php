@@ -27,4 +27,4 @@ $inscription=$forum->inscription(
 }
 
 
-header('Location: connection.php');
+header('Location: connection.html');

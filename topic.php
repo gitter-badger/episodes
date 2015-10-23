@@ -4,10 +4,10 @@
 
 	$template	= $twig -> loadTemplate('topic.html');
 
-	$profil		= $forum -> selectUser($messages[0]['creatorId']);
 	$topicsUser	= $forum -> afficherTopicUser($_GET['id']);
 	$topic		= $forum -> afficherTopic($_GET['id']);
 	$messages	= $forum -> selectMessages($topics[0]['id']);
+	$profil		= $forum -> selectUser($messages[0]['creatorId']);
 
 	echo $template->render([
 		'userSession'	=> $forum -> selectUser($_SESSION['users']['id']),

@@ -12,6 +12,7 @@
 	$categorie = $forum->selectCategoriesTopics($topics[0]['categorieId']);
 	$creator = $forum->selectCreatorId($topics[0]['creatorId']);
 
+	$profil = $forum->selectUser($_GET['id']);
 
 	echo $template->render([
 		'users' => $users, 
@@ -19,6 +20,7 @@
 		'topics' => $topics, 
 		'categorie'=>$categorie, 
 		'creator'=>$creator, 
+		'profil' => $profil,
 		'forum' => $forum
 		]);
 

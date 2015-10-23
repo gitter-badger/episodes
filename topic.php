@@ -12,7 +12,7 @@
 	echo $template->render([
 		'userSession'	=> $forum -> selectUser($_SESSION['users']['id']),
 		'profil'		=> $profil, 
-		'topics'		=> $topics, 
+		'topic'			=> $topic, 
 		'topicsUser'	=> $topicsUser, 
 		'categorie'		=> $categorie, 
 		'auteurTopic'	=> $auteurTopic, 

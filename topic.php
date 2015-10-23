@@ -3,9 +3,10 @@
  include('includes/db.php');
 
 	$template	= $twig -> loadTemplate('topic.html');
-
-	$topicsUser	= $forum -> afficherTopicUser($_GET['id']);
+	
 	$topic		= $forum -> afficherTopic($_GET['id']);
+	$topicsUser	= $forum -> afficherTopicUser($_GET['id']);
+
 	$messages	= $forum -> selectMessages($topics[0]['id']);
 	$profil		= $forum -> selectUser($messages[0]['creatorId']);
 

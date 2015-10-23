@@ -6,7 +6,7 @@
 
 	$profil		= $forum -> selectUser($_GET['id']);
 	$topicsUser	= $forum -> afficherTopicUser($_GET['id']);
-	$topic		= afficherTopic();
+	$topic		= afficherTopic($_GET['id']);
 	$messages	= selectMessages($topics[0]['id']);
 
 	echo $template->render([

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
-   <head>
+<head>
    <meta charset="UTF-8">
       <title>Page de profil - Episodes</title>
       <!-- Slider header -->
@@ -23,61 +23,43 @@
       <!--[if IE]>
       <script type="text/javascript" src="js/modernizr.custom.78869.js"></script>
       <![endif]-->
-
-
       <title>Profil Page</title>
-   </head>
+</head>
    <body>
-
-      <div class="container">
-         
-
-               
-    {% if profil.avatar %}
-
-            <div class="pp_user ">
-               <img src="../images/user.png" alt="user" style="left:inherit">
-            </div>
-
-{% else %}
-              <div class="pp_liste">
-               <img src="{{profil.avatar}}" alt="user">
+   <div class="container">      
+      {% if profil.avatar %}
+         <div class="pp_liste">
+            <img src="{{profil.avatar}}" alt="user">
+         </div>         
+      {% else %}
+         <div class="pp_user ">
+            <img src="../images/user.png" alt="user" style="left:inherit">
          </div>
-{% endif  %}
+      {% endif  %}
             
-         <h3>{{profil.pseudo}}</h3>
+      <h3>{{profil.pseudo}}</h3>
          <ul id="menu_profil">
             <li class="onglet active">
-               <a href="profil_page.php?id=<?=$_GET['id']?>">
+               <a href="profil_page.php?id={{profil.id}}">
                   <h4>Topics: </h4>
                </a>
             </li>
             <li class="onglet">
-               <a href="messages_user.php?id=<?=$_GET['id']?>">
+               <a href="messages_user.php?id={{profil.id}}">
                   <h4>Derniers messages:</h4>
                </a>
             </li>
          </ul>
-         <?php 
-            $topics  =  $forum->afficherTopicUser($_SESSION['users']['id']);
-            $ligne   =  count($topics);
-            
-            for ( $i = 0; $i < $ligne; $i++ ) {
-               if ($ligne > 0) {?>
-         <ul class="result">
-            <li><a href="topic.php?id=<?=$topics[$i]['id']?>"><?=$topics.title]?>
-               </a>
-            </li>
-            <span class="date"><?=$topics[0]['creation']; ; die()?></span> 
-         </ul>
-         <?php }
-            else{
-            echo "Pas de topics";
-            die();
-            }
-            } ?>
-      </div>
-      
-   </body> 
 
-   </html>
+      {% for topic in topicsUser %}
+      {% if topic in topicsUser %}
+         <ul class="result">
+            <li><a href="topic.php?id={{topic.id}}">{{topic.title}}</a></li>
+            <span class="date">{{topic.creation}}</span> 
+         </ul>
+      {% else %}
+            <p>Pas de topics</p>
+      {% endif %}
+   </div>    
+</body> 
+</html>

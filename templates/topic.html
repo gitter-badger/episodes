@@ -28,46 +28,34 @@
      
 
       <div class="head_post">
-         <h2>{{topic.title}}</h2>
+         <h2>{{ profil.pseudo }}</h2>
             
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="Episodes" data-lang="fr" data-count="none">Tweeter</a>
 
          <a href="profil_page.php?id={{auteurTopic}}">
-            <p class="creator">{{auteurTopic}}</p>
+            <p class="creator">{{ auteurTopic }}</p>
          </a>
-         <span class="creation">{{topic.creation}}</span> 
+         <span class="creation">{{ topic.creation }}</span> 
       </div>
 
 
       <div class="post_first" >
-         <p>{{topic.description}}</p>
+         <p>{{ topic.description }}</p>
       </div>
 
       
 
       <div class="message">
 
-         <?php
-            $listeMessages = $forum->selectMessages($_GET["id"]);
-            $ligne=count($listeMessages);
-            
-            for ($i=0; $i<$ligne;$i++){ 
-           
-            $messageCreator=$forum->selectMessageCreator($listeMessages[$i]['creatorId']);
-               ?>
          
          {% for message in messages %}
 
          <div class="post">
-                  <h4>{{message.creatorId}}</h4>
+                  <h4>{{ profil.pseudo }}</h4>
 
                    <div class="dd">
-                  <?php 
-                     $forum= new Forum($pdo);
-                     $avatar = $forum->selectUser($listeMessages[$i]['creatorId']);
-                     ?> 
                      
-                  <img src="<?=$avatar['0']['avatar']?>" alt="user">
+                  <img src="{{profil.avatar}}" alt="user">
                </div>
               <div class="txt">
             <p> {{message.message}}</p>

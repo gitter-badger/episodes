@@ -1,6 +1,6 @@
 <?php
 
-include('Forum.php');
+include('forum.php');
 
 include('twig/lib/Twig/Autoloader.php');
 

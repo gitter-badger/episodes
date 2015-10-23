@@ -4,7 +4,7 @@
 
 	$template	= $twig -> loadTemplate('topic.html');
 
-	$profil		= $forum -> selectUser($_GET['id']);
+	$profil		= $forum -> selectUser($messages[0]['creatorId']);
 	$topicsUser	= $forum -> afficherTopicUser($_GET['id']);
 	$topic		= $forum -> afficherTopic($_GET['id']);
 	$messages	= $forum -> selectMessages($topics[0]['id']);
@@ -18,6 +18,7 @@
 		'auteurTopic'	=> $auteurTopic, 
 		'profil'		=> $profil,
 		'messages'		=> $messages,
-		'forum'			=> $forum
+		'forum'			=> $forum,
+		'users'			=> $users
 		]);
 

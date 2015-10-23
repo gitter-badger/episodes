@@ -38,20 +38,22 @@
 
          
           
-               <div class="pp icon">
+      {% if userSession.avatar%}
+         
+                <div class="pp icon">
 
                   <img src="{{userSession.avatar}}" alt="user" >
                </div>
 
-         
 
-<!--                <div class="pp icon">
 
-   <img src="../images/user.png" alt="user" >
-</div> -->
-        
-       
 
+{% else%}
+                     <div class="pp icon">
+                        <img src="../images/user.png" alt="user" style="left:inherit">
+                     </div>
+
+{% endif %}
 
 
                <ul class="profil_nav" >

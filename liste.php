@@ -10,7 +10,7 @@
        
         echo $template->render([
         	'users' => $users,
-        	'userSession' => $forum->selectUser($_SESSION['users']['id'])
+        	'userSession' => $userSession
         ]);
 
       

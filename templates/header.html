@@ -10,10 +10,10 @@
             <input name="cs_anchor1" id="cs_pause1_1" class="cs_anchor pause" type="radio">
             <input name="cs_anchor1" id="cs_pause1_2" class="cs_anchor pause" type="radio">
             <ul>
-               <li class="cs_skeleton"><img src="cssslider_files/csss_images1/21131354.jpg" style="width: 100%;"></li>
-               <li class="num0 img slide"> <img src="cssslider_files/csss_images1/21131354.jpg" alt="" title=""></li>
-               <li class="num1 img slide"> <img src="cssslider_files/csss_images1/mrrobot_prelinear_aspot.jpg" alt="" title=""></li>
-               <li class="num2 img slide"> <img src="cssslider_files/csss_images1/shamelesswallpapershamelessus3715072619201080.jpg" alt="" title=""></li>
+               <li class="cs_skeleton"><img src="css/cssslider_files/csss_images1/21131354.jpg" style="width: 100%;"></li>
+               <li class="num0 img slide"> <img src="css/cssslider_files/csss_images1/21131354.jpg" alt="" title=""></li>
+               <li class="num1 img slide"> <img src="css/cssslider_files/csss_images1/mrrobot_prelinear_aspot.jpg" alt="" title=""></li>
+               <li class="num2 img slide"> <img src="css/cssslider_files/csss_images1/shamelesswallpapershamelessus3715072619201080.jpg" alt="" title=""></li>
             </ul>
             <div class="cs_engine"><a href="http://cssslider.com">html slider</a> by cssSlider.com v2.1</div>
             <div class="cs_description">
@@ -37,27 +37,25 @@
           <div class="hello">
                
    
+{% if userSession.avatar%}
+         
+                <div class="pp icon">
 
-            {% if avatar.avatar %}
+                  <img src="{{userSession.avatar}}" alt="user" >
+               </div>
 
+
+
+
+{% else%}
                      <div class="pp icon">
                         <img src="../images/user.png" alt="user" style="left:inherit">
                      </div>
-                     <a href="profil_page.php?id={{ avatar.avatar}}">
-                       
-                     </a>
-{% else %}
-                  <div class="pp icon ">
-                     <img src="{{avatar.avatar}}" alt="user">
-                  </div>
-                  <a href="profil_page.php?id={{users.id}}">
-                     
-                  </a>
-{% endif  %}
 
+{% endif %}
              
                <ul class="profil_nav" >
-                  <li>Bonjour {{users}}</li>
+                  <li>Bonjour {{userSession.pseudo}}</li>
                   <li class="hvr-underline-from-center">  <a href="profil_page.php?id={{users.id}}" >Profil</a></li>
                   <li class="hvr-underline-from-center"> <a href="update_profil.php?id={{users.id}}" >Modifier Profil</a></li>
                   <li class="hvr-underline-from-center">  <a href="logout.php"> <i class="fa fa-sign-out"></i> Log out</a></li>

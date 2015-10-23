@@ -77,14 +77,7 @@
         
        }
 
-   function selectOneUser()
-       {
-         $request=$this->pdo->prepare('SELECT * FROM users WHERE id="'.$_SESSION['users']['id'].'";');
-         $request->execute([]);
-        return $request->fetchAll()[0];
-    
-        
-       }
+
    
    // Liste Topics
    

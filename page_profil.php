@@ -3,19 +3,12 @@
  include('includes/db.php');
 
 	$template 	= $twig->loadTemplate('page_profil.html');
-	$users  	= $forum->selectUsers();
-
-	$topics 	= $forum-> selectTopics();
-
-	$categories 	= $forum-> selectCategories();
-
-	$categorie = $forum->selectCategoriesTopics($topics[0]['categorieId']);
-	$creator = $forum->selectCreatorId($topics[0]['creatorId']);
 
 	$profil = $forum->selectUser($_GET['id']);
 
 	echo $template->render([
-		'users' => $users, 
+		'userSession' => $forum->selectUser($_SESSION['users']['id']),
+		'profil' => $profil, 
 		'categories' => $categories, 
 		'topics' => $topics, 
 		'categorie'=>$categorie, 

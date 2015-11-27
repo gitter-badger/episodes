@@ -1,17 +1,18 @@
 <?php
 
 include('includes/db.php');
-include('includes/forum.php');
-
-$forum= new Forum($pdo);
-$profil=$forum->updateProfil(
-	$_POST['pseudo'],
-	$_POST['email'],
-	$_GET['id']
 
 
-	);
+$template 	= $twig->loadTemplate('profil_page.html');
+$user  = $forum->selectUser($_GET['id']);
+$topics  =  $forum->afficherTopicUser($_GET['id']);
 
 
-header('Location: accueil.php');
+echo $template->render([
+		'user' => $user,
+		'userSession' => $userSession,
+		'topics' => $topics
+		]);
+
+
 ?>

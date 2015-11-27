@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page de profil - Episodes</title><!-- Slider header -->
+    <link href="css/cssslider_files/csss_engine1/style.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="images/logo_icon.png" rel="icon" type="image/png">
+    <!-- Hover.css -->
+    <link href="css/Hover-master/css/hover.css" rel="stylesheet"><!--  CSS -->
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css"><!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel=
+    'stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700'
+    rel='stylesheet' type='text/css'>
+    <link href="css/font-awesome-4.3.0/css/font-awesome.css" rel="stylesheet"
+    type="text/css"><!-- Jquery -->
+
+    <script src=
+    "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script><!--[if IE]>
+      <script type="text/javascript" src="js/modernizr.custom.78869.js"></script>
+      <![endif]-->
+    <title>Profil Page</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="container">
+        {% if user.avatar %}
+        <div class="pp_liste"><img alt="user" src="{{user.avatar}}" style=
+        "left:inherit"></div><a href="page_profil.php?id={{user.id}}">
+        <h2>{{user.pseudo}}</h2></a> {% else %}
+        <div class="pp_user"><img alt="user" src="../images/user.png" style=
+        "left:inherit"></div><a href="page_profil.php?id={{user.id}}">
+        <h2>{{user.pseudo}}</h2></a> {% endif %}
+        <h3>{{user.pseudo}}</h3>
+        <ul id="menu_profil">
+            <li class="onglet active">
+                <a href="profil_page.php?id=%3C?=$_GET['id']?%3E">
+                <h4>Topics:</h4></a>
+            </li>
+            <li class="onglet">
+                <a href="messages_user.php?id=%3C?=$_GET['id']?%3E">
+                <h4>Derniers messages:</h4></a>
+            </li>
+        </ul>{% for topic in topics %} {% if topic in topics %}
+        <ul class="result">
+            <li>
+                <a href=
+                "topic.php?id=%3C?=$topics[$i]['id']?%3E">{{topic.title}}</a>
+            </li>
+            <li style="list-style: none"><span class=
+            "date">{{topic.creation}}</span></li>
+        </ul>{% else %}
+        <p>Pas de topics</p>{% endif %} {% endfor %}
+    </div>{% include 'footer.html' %}
+</body>
+</html>

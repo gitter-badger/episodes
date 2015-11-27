@@ -11,7 +11,7 @@ if ( empty($_SESSION['users']) ) {
 
 if ( !empty($_POST['description']) AND (!empty($_POST['title'])) ){
 
-	$insert_topic= new Forum($pdo);
+
 
 	$insert_topic->creerTopic(
 	

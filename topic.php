@@ -5,16 +5,13 @@
 	$template	= $twig -> loadTemplate('topic.html');
 	
 	$topic		= $forum -> afficherTopic($_GET['id']);
-	$topicsUser	= $forum -> afficherTopicUser($_GET['id']);
-
 	$messages	= $forum -> selectMessages($topics[0]['id']);
 	$profil		= $forum -> selectUser($messages[0]['creatorId']);
 
 	echo $template->render([
 		'userSession'	=> $forum -> selectUser($_SESSION['users']['id']),
-		'profil'		=> $profil, 
+		'profil'		=> $forum -> selectUser($messages[0]['creatorId']),
 		'topic'			=> $topic, 
-		'topicsUser'	=> $topicsUser, 
 		'categorie'		=> $categorie, 
 		'auteurTopic'	=> $auteurTopic, 
 		'profil'		=> $profil,

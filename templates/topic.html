@@ -28,12 +28,12 @@
      
 
       <div class="head_post">
-         <h2>{{ profil.pseudo }}</h2>
+         <h2>{{ topic.title }}</h2>
             
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="Episodes" data-lang="fr" data-count="none">Tweeter</a>
 
-         <a href="profil_page.php?id={{auteurTopic}}">
-            <p class="creator">{{ auteurTopic }}</p>
+         <a href="profil_page.php?id={{auteurTopic.id}}">
+            <p class="creator">{{ auteurTopic.pseudo }}</p>
          </a>
          <span class="creation">{{ topic.creation }}</span> 
       </div>

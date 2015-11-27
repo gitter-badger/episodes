@@ -145,7 +145,7 @@
        		':id'=> $id,
        		]);
    
-       	return $request->fetchAll();
+       	return $request->fetchAll()[0];
        	
        }
    

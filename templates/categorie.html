@@ -4,20 +4,19 @@
 
       <meta charset="UTF-8">
       <title>Categorie - Episodes</title>
-      <!-- Slider header -->
-      <link rel="stylesheet" href="cssslider_files/csss_engine1/style.css">
+       <!-- Slider header -->
+      <link rel="stylesheet" href="css/cssslider_files/csss_engine1/style.css">
       <!-- Favicon -->
       <link rel="icon" href="images/logo_icon.png" type="image/png">
       <!-- Hover.css -->
-      <link rel="stylesheet" href="Hover-master/css/hover.css">
+      <link rel="stylesheet" href="css/Hover-master/css/hover.css">
       <!--  CSS -->
       <link rel="stylesheet" type="text/css" href="css/normalize.css">
-      <link rel="stylesheet" type="text/css" href="css/accueil.css">
-      <link rel="stylesheet" type="text/css" href="css/connect.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
       <!-- Font -->
        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.css">
+      <link rel="stylesheet" type="text/css" href="css/font-awesome-4.3.0/css/font-awesome.css">
       <!-- Jquery -->
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <!--[if IE]>
@@ -55,7 +54,7 @@
          {% include 'header.html' %}
 
       <div class="head_post">
-         <h2>{{titreCategorie.name}}</h2>
+         <h2>{{ titreCategorie.name }}</h2>
       </div>
       <a href="formulaire_topic.php">
          <h2>Nouveau topic <i class="fa fa-plus"></i></h2>
@@ -71,13 +70,13 @@
          <tbody>
          {% for topic in listeTopics %}
             <tr>
-               <td class="topic"><a href="topic.php{{listeTopicsCategorie.id}}">{{listeTopicsCategorie.title}}</a></td>
+               <td class="topic"><a href="topic.php{{topic.id}}">{{ topic.title }}</a></td>
                <td class="creatorId"> 
-                  <a href="profil_page.php{{listeTopicsCategorie.creatorId}}">creatorId.pseudo</a> 
+                  <a href="profil_page.php{{topic.creatorId}}">{{ creatorId.pseudo }}</a> 
                </td>
-               <td class="date"> {{ listeTopicsCategorie.creation }} </td>
+               <td class="date"> {{ topic.creation }} </td>
             </tr>
-            {{endFor}}
+            {% endfor %}
          </tbody>
       </table>
       {% include 'footer.html' %}

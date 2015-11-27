@@ -7,6 +7,7 @@
     $titreCategorie=$forum->afficherCategorie($_GET['id']);  
       
 	echo $template->render([
+		'userSession' => $userSession,
 		'listeTopics' => $listeTopicsCategorie,
 		'titreCategorie' => $titreCategorie 
 		]);

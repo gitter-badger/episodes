@@ -69,9 +69,9 @@
             </tr>
          </thead>
          <tbody>
-         {% for $topic in $listeTopics %}
+         {% for topic in listeTopics %}
             <tr>
-               <td class="topic"><a href="topic.php{{$listeTopicsCategorie.id}}">{{listeTopicsCategorie.title}}</a></td>
+               <td class="topic"><a href="topic.php{{listeTopicsCategorie.id}}">{{listeTopicsCategorie.title}}</a></td>
                <td class="creatorId"> 
                   <a href="profil_page.php{{listeTopicsCategorie.creatorId}}">creatorId.pseudo</a> 
                </td>

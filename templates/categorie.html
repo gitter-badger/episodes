@@ -51,20 +51,11 @@
       </style>
    </head>
    <body>
-      <?php include('includes/db.php');
-         include("header.php"); 
-         
-              $forum=new Forum($pdo);
-              $listeTopicsCategorie=$forum->listeTopicsCategorie($_GET['id']);
-              $ligne=count($listeTopicsCategorie);
-         
-              $titreCategorie=$forum->afficherCategorie($_GET['id']);
-         
-              /*$sql=$pdo->query('SELECT * FROM categories WHERE id="'.$_GET['id'].'"');
-              $result2=$sql->fetchAll();*/
-               ?>
+ 
+         {% include 'header.html' %}
+
       <div class="head_post">
-         <h2><?=$titreCategorie[0]['name']?></h2>
+         <h2>{{titreCategorie.name}}</h2>
       </div>
       <a href="formulaire_topic.php">
          <h2>Nouveau topic <i class="fa fa-plus"></i></h2>
@@ -78,24 +69,17 @@
             </tr>
          </thead>
          <tbody>
-            <?php for ($i=0; $i<$ligne;$i++){ ?>
+         {% for $topic in $listeTopics %}
             <tr>
-               <td class="topic"><a href="topic.php?id=<?=$listeTopicsCategorie[$i]['id']?>"><?=$listeTopicsCategorie[$i]['title']?></a></td>
+               <td class="topic"><a href="topic.php{{$listeTopicsCategorie.id}}">{{listeTopicsCategorie.title}}</a></td>
                <td class="creatorId"> 
-                  <?php 
-                     $creatorId = $forum->selectCreatorId($listeTopicsCategorie[$i]['creatorId']);
-                      
-                     ?>
-                  <a href="profil_page.php?id=<?=$listeTopicsCategorie[$i]['creatorId']?>"><?php 
-                     echo $creatorId[0]['pseudo'];
-                     ?></a> 
+                  <a href="profil_page.php{{listeTopicsCategorie.creatorId}}">creatorId.pseudo</a> 
                </td>
-               <td class="date"> <?=$listeTopicsCategorie[$i]['creation']?></td>
+               <td class="date"> {{ listeTopicsCategorie.creation }} </td>
             </tr>
-            <?php }
-               ?>
+            {{endFor}}
          </tbody>
       </table>
-      <?php include("footer.php"); ?>  
+      {% include 'footer.html' %}
    </body>
 </html>
